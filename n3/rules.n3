@@ -1,8 +1,30 @@
 @prefix ui: <http://www.w3.org/ns/ui#>.
-@prefix form:  <http://rdf.danielbeeke.nl/form/form-dev.ttl#> .
+@prefix form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#> .
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix : <http://phochste.github.io/uiform2rdfform#> .
+
+{ (?ORDER) :order 1 } <= true.
 
 { ?subject ui:label ?label } => { ?subject form:label ?label } .
 { ?subject ui:property ?property } => { ?subject form:binding ?property } .
+
+{
+    ?subject a ui:Group .
+}
+=> 
+{   
+    ?subject a form:Form.
+}.
+
+{
+    ?subject a ui:Group ;
+        ui:parts ?parts .
+    ?parts list:member ?part.
+}
+=> 
+{
+    ?part form:order ?ORDER.
+}.
 
 {
     ?subject a ui:SingleLineTextField. 

@@ -1,0 +1,14 @@
+@prefix ex: <https://example.org/#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix vcard: <http://www.w3.org/2006/vcard/>.
+
+:form a ui:Group;
+  ui:parts (:part1 :part2).
+
+      :part1 a ui:SingleLineTextField ;
+      ui:property vcard:fn;
+      ui:label "name" .
+
+      :part2 a ui:EmailField ;
+      ui:property vcard:hasEmail;
+      ui:label "email" .
