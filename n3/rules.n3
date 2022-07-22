@@ -1,0 +1,113 @@
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix form:  <http://rdf.danielbeeke.nl/form/form-dev.ttl#> .
+
+{ ?subject ui:label ?label } => { ?subject form:label ?label } .
+{ ?subject ui:property ?property } => { ?subject form:binding ?property } .
+
+{
+    ?subject a ui:SingleLineTextField. 
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "string".
+}.
+
+{
+    ?subject a ui:MultiLineTextField .
+}
+=> 
+{
+    ?subject a form:Field ; 
+        form:widget "textarea".
+}.
+
+{
+    ?subject a ui:BooleanField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "checkbox".
+}.
+
+{
+    ?subject a ui:TristateField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "checkbox".
+}.
+
+{
+    ?subject a ui:IntegerField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "string". 
+}.
+
+{
+    ?subject a ui:DecimalField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "string". 
+}.
+
+{
+    ?subject a ui:FloatField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "string". 
+}.
+
+{
+    ?subject a ui:ColorField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "color". 
+}.
+
+{
+    ?subject a ui:DateField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "date". 
+}.
+
+{
+    ?subject a ui:DateTimeField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "date". 
+}.
+
+{
+    ?subject a ui:PhoneField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "reference". 
+}.
+
+{
+    ?subject a ui:EmailField .
+}
+=> 
+{
+    ?subject a form:Field ;
+        form:widget "reference". 
+}.

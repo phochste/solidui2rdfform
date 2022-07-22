@@ -1,0 +1,7 @@
+@prefix ex: <https://example.org/#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix vcard: <http://www.w3.org/2006/vcard/>.
+
+ex:form
+   a ui:EmailField ;
+   ui:property vcard:hasEmail .

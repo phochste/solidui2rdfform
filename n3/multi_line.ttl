@@ -1,0 +1,7 @@
+@prefix ex: <https://example.org/#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+
+ex:form
+   a ui:MultiLineTextField ;
+   ui:property rdfs:comment .

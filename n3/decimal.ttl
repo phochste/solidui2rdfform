@@ -1,0 +1,6 @@
+@prefix ex: <https://example.org/#>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+
+ex:form
+   a ui:DecimalField ;
+   ui:property ex:price .
