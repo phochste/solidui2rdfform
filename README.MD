@@ -3,9 +3,9 @@
 
 This is a collection of Notation3 rules to demonstrate how solid-ui forms (or
 a subset of these forms) can be translated to rdf-form (or a subset of these
-forms) using the EYE Notation3 reasoner. It was built for demonstration purposes
-to find out which minimum level of support for Notation3 built-ins are needed
-for a Web based Notation3 engine.
+forms) using the [EYE](https://github.com/josd/eye) Notation3 reasoner. 
+It was built for demonstration purposes to find out which minimum level of 
+support for Notation3 built-ins are needed for a Web based Notation3 engine.
 
 # Usage
 
