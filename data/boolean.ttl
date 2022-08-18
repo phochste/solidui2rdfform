@@ -3,4 +3,5 @@
 
  ex:form
    a ui:BooleanField ;
+   ui:label "All Day" ;
    ui:property ex:allDay .

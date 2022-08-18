@@ -1,1 +1,3 @@
-n3/*.out
+data/*.out
+forms/**
+scratch/**

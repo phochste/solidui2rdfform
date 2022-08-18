@@ -1,0 +1,16 @@
+@prefix ex: <https://example.org/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix : <#> .
+
+:this
+    a ui:Form ;
+    ui:parts (
+        :nicknameField
+    ).
+
+:nicknameField 
+    a ui:SingleLineTextField ;
+    ui:size 12 ;
+    ui:property foaf:nick ;
+    ui:label "Short name for chats, etc"@en , "Nom court"@fr.
