@@ -1,12 +1,14 @@
 @prefix ex: <https://example.org/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
 @prefix : <#> .
 
 :this
     a ui:Form ;
     ui:parts (
         :nicknameField
+        :pronounsForm
     ).
 
 :nicknameField 
@@ -14,3 +16,30 @@
     ui:size 12 ;
     ui:property foaf:nick ;
     ui:label "Short name for chats, etc"@en , "Nom court"@fr.
+
+:pronounsForm 
+    a ui:Group ;
+    ui:label "Pronouns" ;
+    ui:parts (
+        :subjectPronounForm
+        :objectPronounForm
+        :relativePronounForm
+    ).
+
+:subjectPronounForm 
+    a ui:SingleLineTextField ;
+    ui:size 10 ;
+    ui:label "he/she/they..." ;
+    ui:property solid:preferredSubjectPronoun .
+
+:objectPronounForm 
+    a ui:SingleLineTextField ;
+    ui:size 10 ;
+    ui:label "he/she/they..." ;
+    ui:property solid:preferredObjectPronoun .
+
+:relativePronounForm 
+    a ui:SingleLineTextField ;
+    ui:size 10 ;
+    ui:label "he/she/they..." ;
+    ui:property solid:preferredRelativePronoun .

@@ -1,15 +1,40 @@
 @prefix ui: <http://www.w3.org/ns/ui#>.
 @prefix form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#> .
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix string: <http://www.w3.org/2000/10/swap/string#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix : <http://phochste.github.io/uiform2rdfform#> .
+
+{
+    ?subject a ui:Form .
+}
+=> 
+{
+    [ a form:Form ;
+      form:binding ?subject ].
+}.
+
+{
+    ?subject a ui:Group .
+    ?subject ui:parts ?parts .
+    ?parts list:iterate (?i ?part) .
+
+    ?subject log:uri ?subject_uri .
+    ( ?subject_uri ".*[/#](.+)$" ) string:scrape ?subject_name .
+}
+=>
+{
+    ?subject 
+        a form:Container ;
+        form:widget "container" .
+    ?part form:container ?subject_name.
+}.
 
 { ?subject ui:label ?label } => { ?subject form:label ?label } .
 { ?subject ui:property ?property } => { ?subject form:binding ?property } .
 
-
 {
-    ?subject a ui:Group ;
-        ui:parts ?parts .
+    ?subject ui:parts ?parts .
     ?parts list:iterate (?i ?part) .
 }
 => 
