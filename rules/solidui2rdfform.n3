@@ -3,7 +3,7 @@
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 @prefix string: <http://www.w3.org/2000/10/swap/string#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
-@prefix : <http://phochste.github.io/uiform2rdfform#> .
+@prefix : <http://phochste.github.io/soliduiform2rdfform#> .
 
 {
     ?subject a ui:Form .

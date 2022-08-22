@@ -4,7 +4,7 @@ PREFIX form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#>
 PREFIX list: <http://www.w3.org/2000/10/swap/list#>
 PREFIX string: <http://www.w3.org/2000/10/swap/string#>
 PREFIX log: <http://www.w3.org/2000/10/swap/log#>
-PREFIX : <http://phochste.github.io/uiform2rdfform#>
+PREFIX : <http://phochste.github.io/soliduiform2rdfform#>
 
 ex:form form:label "All Day".
 ex:form form:binding ex:allDay.

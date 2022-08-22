@@ -1,0 +1,91 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#> .
+@prefix list: <http://www.w3.org/2000/10/swap/list#> .
+@prefix string: <http://www.w3.org/2000/10/swap/string#> .
+@prefix math: <http://www.w3.org/2000/10/swap/math#> .
+@prefix log: <http://www.w3.org/2000/10/swap/log#> .
+@prefix : <http://phochste.github.io/soliduiform2rdfform#> .
+
+# The Form
+{
+    ?subject a sh:NodeShape ;
+            sh:targetClass ?class .
+}
+=> 
+{
+    [ 
+        a form:Form  ;
+        form:binding ?class
+    ]
+}.
+
+# The fields
+{
+    ?subject sh:property ?property .
+}
+=> 
+{
+    ?property a form:Field .
+}.
+
+# Binding
+{
+    ?subject sh:property ?property  .
+    ?property sh:path ?binding .
+}
+=>
+{
+    ?property form:binding ?binding .
+}.
+
+# Label
+{
+    ?subject sh:property ?property .
+    ?property sh:name ?name .
+}
+=> 
+{
+    ?property form:label ?name .
+}.
+
+# Widget
+{
+    ?subject sh:property ?property .
+    ?property sh:datatype ?type .
+}
+=> 
+{
+    ?property form:widget ?type .
+}.
+
+# Required
+{
+    ?subject sh:property ?property  .
+    ?property sh:minCount ?count .
+    ?count math:greaterThan 0 .
+}
+=>
+{
+    ?property form:required true .
+}.
+
+# Multiple
+{
+    ?subject sh:property ?property  .
+    ?property sh:maxCount ?count .
+    ?count math:greaterThan 1 .
+}
+=>
+{
+    ?property form:multiple true .
+}.
+
+# Order
+{
+    ?subject sh:property ?property .
+    ?property sh:order ?order .
+}
+=>
+{
+    ?property form:order ?order .
+}.
