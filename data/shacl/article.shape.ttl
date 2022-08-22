@@ -1,0 +1,71 @@
+@prefix dash:   <http://datashapes.org/dash#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+
+##########
+# Shapes #
+##########
+<#ScholarlyArticleShape>
+    a              sh:NodeShape ;
+    sh:targetClass schema:ScholarlyArticle ;
+    sh:property    [ sh:path     schema:abstract ;
+                     sh:datatype xsd:string ;
+                     sh:name     "Abstract of the publication." ;
+                     sh:minCount 1 ; ] ;
+    sh:property    [ sh:path     schema:author ;
+                     sh:node     <#AuthorShape> ;
+                     sh:minCount 1 ; ] ;
+    sh:property    [ sh:path     schema:datePublished ;
+                     sh:datatype xsd:date ;
+                     sh:maxCount 1 ;
+                     sh:minCount 1 ; ] ;
+    sh:property    <#NameProperty> ;
+    sh:property    [ sh:path     schema:isPartOf ;
+                     sh:node     <#PartOfShape> ;
+                     sh:minCount 0 ;
+                     sh:name     "Links to the book or proceedings the publication is part of." ; ] ;
+    sh:property    [ sh:path     schema:about ;
+                     sh:or       ( [ sh:node <#AboutShape> ] [ sh:node <#SourceCodeShape> ] ) ;
+                     sh:name     "Links to the topics that the publication is related to or the tools and benchmarks that are mentioned/introduced." ;
+                     sh:minCount 1 ; ] ;
+    sh:property    [ sh:path     [ sh:inversePath schema:targetProduct ] ;
+                     sh:node     <#SourceCodeShape> ;
+                     sh:name     "Links to the source code of the publication." ;
+                     sh:minCount 1 ; ] .
+
+<#PartOfShape>
+    a           sh:NodeShape ;
+    sh:property <#NameProperty> .
+
+<#AboutShape>
+    a           sh:NodeShape ;
+    sh:property <#NameProperty> .
+
+<#AuthorShape>
+    a           sh:NodeShape ;
+    sh:property [ sh:path     foaf:name ;
+                  sh:datatype xsd:string ;
+                  sh:minCount 1 ] .
+
+<#SourceCodeShape>
+    a           sh:NodeShape ;
+    sh:property <#NameProperty>;
+    sh:property [ sh:path     rdf:type ;
+                  sh:hasValue schema:SoftwareSourceCode ;
+                  sh:minCount 1 ] ;
+    sh:property [ sh:path     schema:codeRepository ;
+                  sh:nodeKind sh:IRI ;
+                  sh:minCount 1 ] .
+
+
+##############
+# Properties #
+##############
+<#NameProperty>
+    sh:path     schema:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 .

@@ -4,6 +4,8 @@
 
 ex:PersonFormShape
 	a sh:NodeShape ;
+	sh:targetClass ex:person ;
+
 	sh:property [
 		sh:path ex:firstName ;
 		sh:name "first name" ;
@@ -13,6 +15,7 @@ ex:PersonFormShape
 		sh:order 0 ;
 		sh:group ex:NameGroup ;
 	] ;
+
 	sh:property [
 		sh:path ex:lastName ;
 		sh:name "last name" ;
@@ -20,6 +23,7 @@ ex:PersonFormShape
 		sh:order 1 ;
 		sh:group ex:NameGroup ;
 	] ;
+
 	sh:property [
 		sh:path ex:streetAddress ;
 		sh:name "street address" ;
@@ -27,6 +31,7 @@ ex:PersonFormShape
 		sh:order 11 ;
 		sh:group ex:AddressGroup ;
 	] ;
+
 	sh:property [
 		sh:path ex:locality ;
 		sh:name "locality" ;
@@ -34,6 +39,7 @@ ex:PersonFormShape
 		sh:order 12 ;
 		sh:group ex:AddressGroup ;
 	] ;
+
 	sh:property [
 		sh:path ex:postalCode ;
 		sh:name "postal code" ;
