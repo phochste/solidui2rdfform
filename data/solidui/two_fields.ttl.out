@@ -1,0 +1,24 @@
+PREFIX ex: <https://example.org/#>
+PREFIX ui: <http://www.w3.org/ns/ui#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/>
+PREFIX form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#>
+PREFIX list: <http://www.w3.org/2000/10/swap/list#>
+PREFIX string: <http://www.w3.org/2000/10/swap/string#>
+PREFIX log: <http://www.w3.org/2000/10/swap/log#>
+PREFIX : <http://phochste.github.io/uiform2rdfform#>
+
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#form> a form:Container.
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#form> form:widget "container".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> form:container "form".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> form:container "form".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> form:label "name".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> form:label "email".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> form:binding vcard:fn.
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> form:binding vcard:hasEmail.
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> form:order 0 .
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> form:order 1 .
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> a form:Field.
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part1> form:widget "string".
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> a form:Field.
+<file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/two_fields.ttl#part2> form:widget "reference".
+

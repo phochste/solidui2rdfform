@@ -1,0 +1,42 @@
+PREFIX ex: <https://example.org/#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ui: <http://www.w3.org/ns/ui#>
+PREFIX solid: <http://www.w3.org/ns/solid/terms#>
+PREFIX : <file:///Users/hochsten/Dev/Mellon/solidui2rdfform/data/solidui/form.ttl#>
+PREFIX form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#>
+PREFIX list: <http://www.w3.org/2000/10/swap/list#>
+PREFIX string: <http://www.w3.org/2000/10/swap/string#>
+PREFIX log: <http://www.w3.org/2000/10/swap/log#>
+PREFIX ns1: <http://phochste.github.io/uiform2rdfform#>
+
+_:sk_0 a form:Form.
+_:sk_0 form:binding :this.
+:pronounsForm a form:Container.
+:pronounsForm form:widget "container".
+:subjectPronounForm form:container "pronounsForm".
+:objectPronounForm form:container "pronounsForm".
+:relativePronounForm form:container "pronounsForm".
+:nicknameField form:label "Short name for chats, etc"@en.
+:nicknameField form:label "Nom court"@fr.
+:pronounsForm form:label "Pronouns".
+:subjectPronounForm form:label "he/she/they...".
+:objectPronounForm form:label "he/she/they...".
+:relativePronounForm form:label "he/she/they...".
+:nicknameField form:binding foaf:nick.
+:subjectPronounForm form:binding solid:preferredSubjectPronoun.
+:objectPronounForm form:binding solid:preferredObjectPronoun.
+:relativePronounForm form:binding solid:preferredRelativePronoun.
+:nicknameField form:order 0 .
+:pronounsForm form:order 1 .
+:subjectPronounForm form:order 0 .
+:objectPronounForm form:order 1 .
+:relativePronounForm form:order 2 .
+:nicknameField a form:Field.
+:nicknameField form:widget "string".
+:subjectPronounForm a form:Field.
+:subjectPronounForm form:widget "string".
+:objectPronounForm a form:Field.
+:objectPronounForm form:widget "string".
+:relativePronounForm a form:Field.
+:relativePronounForm form:widget "string".
+

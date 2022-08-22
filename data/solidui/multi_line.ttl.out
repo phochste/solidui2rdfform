@@ -1,0 +1,13 @@
+PREFIX ex: <https://example.org/#>
+PREFIX ui: <http://www.w3.org/ns/ui#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#>
+PREFIX list: <http://www.w3.org/2000/10/swap/list#>
+PREFIX string: <http://www.w3.org/2000/10/swap/string#>
+PREFIX log: <http://www.w3.org/2000/10/swap/log#>
+PREFIX : <http://phochste.github.io/uiform2rdfform#>
+
+ex:form form:binding rdfs:comment.
+ex:form a form:Field.
+ex:form form:widget "textarea".
+
