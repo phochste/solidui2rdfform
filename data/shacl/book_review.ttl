@@ -5,24 +5,24 @@
 
 ex:BookReviewShape
     a sh:NodeShape ;
-	sh:targetClass ex:Book ;
+    sh:targetClass ex:Book ;
 
-	sh:property [
-		sh:path dc:title ;
-		sh:name "Title" ;
+    sh:property [
+        sh:path dc:title ;
+        sh:name "Title" ;
         sh:datatype xsd:string ;
         sh:minCount 1 ;
-		sh:order 1 ;
-	] ;
+        sh:order 1 ;
+    ] ;
 
-	sh:property [
-		sh:path dc:creator ;
-		sh:name "Author" ;
+    sh:property [
+        sh:path dc:creator ;
+        sh:name "Author" ;
         sh:datatype xsd:string ;
         sh:minCount 0 ;
         sh:maxCount 10 ;
-		sh:order 2 ;
-	] ;
+        sh:order 2 ;
+    ] ;
 
     sh:property [
         sh:path ex:rating ;
@@ -37,12 +37,12 @@ ex:BookReviewShape
         sh:order 3 ;
     ] ;
 
-	sh:property [
-		sh:path dc:description ;
-		sh:name "Review" ;
+    sh:property [
+        sh:path dc:description ;
+        sh:name "Review" ;
         sh:datatype xsd:string ;
-		sh:order 4 ;
-	] .
+        sh:order 4 ;
+    ] .
 
 ex:NotLikeIt rdfs:label "★ - I don't like it" .
 
