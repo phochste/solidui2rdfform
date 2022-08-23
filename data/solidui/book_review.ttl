@@ -1,0 +1,61 @@
+@prefix ex: <https://example.org/#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix ui: <http://www.w3.org/ns/ui#>.
+@prefix solid: <http://www.w3.org/ns/solid/terms#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix : <#> .
+
+:this
+    a ui:Form ;
+    ui:parts (
+        :titleField
+        :authorField
+        :ratingField
+        :reviewField
+    ).
+
+:titleField 
+    a ui:SingleLineTextField ;
+    ui:property dc:title ;
+    ui:label "Title".
+
+:titleField 
+    a ui:SingleLineTextField ;
+    ui:property dc:creator ;
+    ui:label "Author".
+
+:choiceField
+    a ui:Choice ;
+    ui:property ex:rating ;
+    ui:label "Rate this book" ;
+    ui:from :ChoiceValue .
+
+:ChoiceValue 
+    a owl:Class.
+
+ex:NotLikeIt 
+    a skos:Concept , :ChoiceValue ;
+    skos:prefLabel "★ - I don't like it" .
+
+ex:ItWasOk
+    a skos:Concept , :ChoiceValue ;
+    skos:prefLabel "★★ - It was ok" .
+
+ex:LikedIt
+    a skos:Concept , :ChoiceValue ;
+    skos:prefLabel "★★★ - I liked it" .
+
+ex:ReallyLikedIt
+    a skos:Concept , :ChoiceValue ;
+    skos:prefLabel "★★★★ - I really liked it" .
+
+ex:Amazing
+    a skos:Concept , :ChoiceValue ;
+    skos:prefLabel "★★★★★ - It was amazing" .
+
+:reviewField
+    a ui:MultiLineTextField ;
+    ui:property dc:description ;
+    ui:label "Review".
+
