@@ -7,6 +7,13 @@ forms) using the [EYE](https://github.com/josd/eye) Notation3 reasoner.
 It was built for demonstration purposes to find out which minimum level of 
 support for Notation3 built-ins are needed for a Web based Notation3 engine.
 
+# Install
+
+```
+npm install
+npm install --force -g @comunica/query-sparql-file
+```
+
 # Usage
 
 - `rules` contains Notation3 rules to transform solid-ui to rdf-forms

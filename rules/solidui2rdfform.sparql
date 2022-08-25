@@ -1,0 +1,84 @@
+PREFIX ui: <http://www.w3.org/ns/ui#> 
+PREFIX form: <http://rdf.danielbeeke.nl/form/form-dev.ttl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://formviewer.patrickhochstenbach.net/gen-id/myform/>
+
+CONSTRUCT { 
+    :myForm
+      a form:Form ;
+      form:binding ?subject .
+
+    ?group a form:Container .
+    ?group form:widget "container" .
+
+    ?field a form:Field .
+    ?field form:label ?label .
+    ?field form:binding ?property .
+    ?field form:widget ?widget .
+    ?field form:container ?group_string .
+}
+WHERE {
+    OPTIONAL {
+        ?subject a ui:Form ;
+            ui:parts/rdf:rest*/rdf:first ?field .
+    }
+    OPTIONAL {
+        ?group a ui:Group ;
+            ui:parts/rdf:rest*/rdf:first ?field .
+        BIND( REPLACE(STR(?group),".*[/#]","") AS ?group_string )
+    }
+    OPTIONAL { 
+        ?field ui:label ?label . 
+    }
+    OPTIONAL { 
+        ?field ui:property ?property . 
+    }
+    OPTIONAL { 
+        ?field a ui:SingleLineTextField .
+        BIND( "string" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:MultiLineTextField .
+        BIND( "textarea" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:BooleanField .
+        BIND( "checkbox" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:TristateField .
+        BIND( "checkbox" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:IntegerField .
+        BIND( "string" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:DecimalField .
+        BIND( "string" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:FloatField .
+        BIND( "string" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:ColorField .
+        BIND( "color" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:DateField .
+        BIND( "date" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:DateTimeField .
+        BIND( "date" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:PhoneField .
+        BIND( "reference" as ?widget )
+    }
+    OPTIONAL {
+        ?field a ui:EmailField .
+        BIND( "reference" as ?widget )
+    }
+} 

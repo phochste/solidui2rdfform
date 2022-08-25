@@ -20,12 +20,12 @@
     ui:property dc:title ;
     ui:label "Title".
 
-:titleField 
+:authorField 
     a ui:SingleLineTextField ;
     ui:property dc:creator ;
     ui:label "Author".
 
-:choiceField
+:ratingField
     a ui:Choice ;
     ui:property ex:rating ;
     ui:label "Rate this book" ;

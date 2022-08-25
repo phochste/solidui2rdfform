@@ -39,16 +39,16 @@
 }
 => 
 {
-    ?part form:order ?i.
+    ?part form:order ?i .
 }.
 
 {
-    ?subject a ui:SingleLineTextField. 
+    ?subject a ui:SingleLineTextField . 
 }
 => 
 {
     ?subject a form:Field ;
-        form:widget "string".
+        form:widget "string" .
 }.
 
 {
@@ -57,7 +57,7 @@
 => 
 {
     ?subject a form:Field ; 
-        form:widget "textarea".
+        form:widget "textarea" .
 }.
 
 {
@@ -66,7 +66,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "checkbox".
+        form:widget "checkbox" .
 }.
 
 {
@@ -75,7 +75,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "checkbox".
+        form:widget "checkbox" .
 }.
 
 {
@@ -84,7 +84,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "string". 
+        form:widget "string" . 
 }.
 
 {
@@ -93,7 +93,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "string". 
+        form:widget "string" . 
 }.
 
 {
@@ -102,7 +102,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "string". 
+        form:widget "string" . 
 }.
 
 {
@@ -111,7 +111,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "color". 
+        form:widget "color" . 
 }.
 
 {
@@ -120,7 +120,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "date". 
+        form:widget "date" . 
 }.
 
 {
@@ -129,7 +129,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "date". 
+        form:widget "date" . 
 }.
 
 {
@@ -138,7 +138,7 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "reference". 
+        form:widget "reference" . 
 }.
 
 {
@@ -147,5 +147,5 @@
 => 
 {
     ?subject a form:Field ;
-        form:widget "reference". 
+        form:widget "reference" . 
 }.
