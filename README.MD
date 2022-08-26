@@ -9,9 +9,10 @@ support for Notation3 built-ins are needed for a Web based Notation3 engine.
 
 # Install
 
+Download and install EYE and add a comunica command line client
+
 ```
-npm install
-npm install --force -g @comunica/query-sparql-file
+npm install -g @comunica/query-sparql-file
 ```
 
 # Usage
