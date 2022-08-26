@@ -16,6 +16,7 @@ CONSTRUCT {
     ?field form:binding ?property .
     ?field form:widget ?widget .
     ?field form:container ?group_string .
+    ?field form:order ?position .
 }
 WHERE {
     OPTIONAL {
@@ -23,8 +24,16 @@ WHERE {
             ui:parts/rdf:rest*/rdf:first ?field .
     }
     OPTIONAL {
-        ?group a ui:Group ;
-            ui:parts/rdf:rest*/rdf:first ?field .
+        ?group a ui:Group .
+        # Calculate the position in a list using:
+        # https://stackoverflow.com/questions/17523804/is-it-possible-to-get-the-position-of-an-element-in-an-rdf-collection-in-sparql
+        {
+            SELECT ?field (count(?mid) - 1 AS ?position) WHERE {
+                ?group  ui:parts/rdf:rest* ?mid .
+                ?mid rdf:rest* ?node .
+                ?node rdf:first ?field .
+            } GROUP BY ?node ?field
+        }
         BIND( REPLACE(STR(?group),".*[/#]","") AS ?group_string )
     }
     OPTIONAL { 
