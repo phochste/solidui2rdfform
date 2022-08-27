@@ -16,7 +16,7 @@ CONSTRUCT {
     ?field form:label ?label .
     ?field form:binding ?property .
     ?field form:widget ?widget .
-    ?field form:option ?choiceList .
+    ?field form:option ?choiceListItem .
     ?field form:container ?group_string .
     ?field form:order ?position .
 

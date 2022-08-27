@@ -3,6 +3,7 @@
 @prefix list: <http://www.w3.org/2000/10/swap/list#>.
 @prefix string: <http://www.w3.org/2000/10/swap/string#>.
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix : <http://phochste.github.io/soliduiform2rdfform#> .
 
 {
@@ -11,8 +12,8 @@
 => 
 {
     [ a form:Form ;
-      form:binding ?subject ].
-}.
+      form:binding ?subject ] .
+} .
 
 {
     ?subject a ui:Group .
@@ -27,11 +28,59 @@
     ?subject 
         a form:Container ;
         form:widget "container" .
-    ?part form:container ?subject_name.
-}.
+    ?part form:container ?subject_name .
+} .
 
-{ ?subject ui:label ?label } => { ?subject form:label ?label } .
-{ ?subject ui:property ?property } => { ?subject form:binding ?property } .
+{
+    ?subject a ui:Choice .
+}
+=> 
+{
+    ?subject
+        a form:Field ;
+        form:widget "dropdown". 
+} .
+
+{
+    ?subject ui:from ?Class .
+
+    ?Option a ?Class ;
+        skos:prefLabel ?Label .
+} 
+=>
+{
+    ?subject :tmpopt [
+        form:value ?Option ;
+        form:label ?Label 
+    ] .
+} .
+
+{  
+   ?subject a form:Field ;
+        form:widget "dropdown" .
+
+   ( ?Option { ?subject :tmpopt ?Option } ?XS ) log:collectAllIn _:x .
+}
+=> 
+{
+    ?subject form:option ?XS .
+} .
+ 
+{ 
+    ?subject ui:label ?label 
+} 
+=> 
+{ 
+    ?subject form:label ?label 
+} .
+
+{ 
+    ?subject ui:property ?property 
+} 
+=> 
+{ 
+    ?subject form:binding ?property 
+} .
 
 {
     ?subject ui:parts ?parts .
@@ -40,7 +89,7 @@
 => 
 {
     ?part form:order ?i .
-}.
+} .
 
 {
     ?subject a ui:SingleLineTextField . 
@@ -49,7 +98,7 @@
 {
     ?subject a form:Field ;
         form:widget "string" .
-}.
+} .
 
 {
     ?subject a ui:MultiLineTextField .
@@ -58,7 +107,7 @@
 {
     ?subject a form:Field ; 
         form:widget "textarea" .
-}.
+} .
 
 {
     ?subject a ui:BooleanField .
@@ -67,7 +116,7 @@
 {
     ?subject a form:Field ;
         form:widget "checkbox" .
-}.
+} .
 
 {
     ?subject a ui:TristateField .
@@ -76,7 +125,7 @@
 {
     ?subject a form:Field ;
         form:widget "checkbox" .
-}.
+} .
 
 {
     ?subject a ui:IntegerField .
@@ -85,7 +134,7 @@
 {
     ?subject a form:Field ;
         form:widget "string" . 
-}.
+} .
 
 {
     ?subject a ui:DecimalField .
@@ -94,7 +143,7 @@
 {
     ?subject a form:Field ;
         form:widget "string" . 
-}.
+} .
 
 {
     ?subject a ui:FloatField .
@@ -103,7 +152,7 @@
 {
     ?subject a form:Field ;
         form:widget "string" . 
-}.
+} .
 
 {
     ?subject a ui:ColorField .
@@ -112,7 +161,7 @@
 {
     ?subject a form:Field ;
         form:widget "color" . 
-}.
+} .
 
 {
     ?subject a ui:DateField .
@@ -121,7 +170,7 @@
 {
     ?subject a form:Field ;
         form:widget "date" . 
-}.
+} .
 
 {
     ?subject a ui:DateTimeField .
@@ -130,7 +179,7 @@
 {
     ?subject a form:Field ;
         form:widget "date" . 
-}.
+} .
 
 {
     ?subject a ui:PhoneField .
@@ -139,7 +188,7 @@
 {
     ?subject a form:Field ;
         form:widget "reference" . 
-}.
+} .
 
 {
     ?subject a ui:EmailField .
@@ -148,4 +197,4 @@
 {
     ?subject a form:Field ;
         form:widget "reference" . 
-}.
+} .
